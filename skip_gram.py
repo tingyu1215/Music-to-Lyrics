@@ -30,20 +30,35 @@ class MyCorpus:
             #print(file_name) ;
             if file_name == 'desktop.ini' : break ;
             files = numpy.load(corpus_fileplace+'\\'+file_name,allow_pickle=True) ;
-            yield files[0][2] ;
+            #print(files[0][2])
+            combine = [] ;
+            for senetece in files[0][2] :
+                #print(senetece)
+                for word_len in senetece :
+                    #print(type(word_list))
+                    #print(word_list)
+                    combine += word_len[0]
+                    combine += " " ;
+                print(combine)
+                #yield " ".join(combine) ;
+                yield combine ;
 
-
-model = Word2Vec(sentences=None ,size= 100, window= 5 ,min_count= 1, workers= 8)
-
-for i in range(3) :
-    sentence = MyCorpus() ;
-    model.build_vocab(" ".join(sentence),update=False) ;
-    model.train(sentence) ;
-
-
+model = Word2Vec(sentences=MyCorpus() ,size= 100, window= 5 ,min_count= 1, workers= 8)
+# it can access iterator !!!
+print("I'm fine") ;
+'''
+for sentence in iter(MyCorpus()) :
+    combine = [] ;
+    print(sentence) ;
+    for word_list in sentence :
+        combine += word_list ;
+    model.build_vocab(" ".join(combine),update=False) ;
+    model.train(" ".join(combine)) ;
+'''
+'''
 model.save("w2v.model")
 model = Word2Vec.load("w2v.model") ;
-
+'''
 
 '''
 model.train([[test,foo,bar]], total_examples= 1, epochs= 1) # put our dataset there
