@@ -32,14 +32,14 @@ class MyCorpus:
             files = numpy.load(corpus_fileplace+'\\'+file_name,allow_pickle=True) ;
             #print(files[0][2])
             combine = [] ;
-            for senetece in files[0][2] :
-                #print(senetece)
-                for word_len in senetece :
+            for senetence in files[0][2] :
+                #print(senetence)
+                for word_len in senetence :
                     #print(type(word_list))
-                    #print(word_list)
-                    combine += word_len[0]
-                    combine += " " ;
-                print(combine)
+                    #print(word_len[0])
+                    combine.append(word_len[0]) ;
+                    #combine += " " ;
+                #print(combine)
                 #yield " ".join(combine) ;
                 yield combine ;
 
@@ -55,10 +55,10 @@ for sentence in iter(MyCorpus()) :
     model.build_vocab(" ".join(combine),update=False) ;
     model.train(" ".join(combine)) ;
 '''
-'''
-model.save("w2v.model")
-model = Word2Vec.load("w2v.model") ;
-'''
+
+model.save("finishw2v.model")
+#model = Word2Vec.load("w2v.model") ;
+
 
 '''
 model.train([[test,foo,bar]], total_examples= 1, epochs= 1) # put our dataset there
