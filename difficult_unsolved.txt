@@ -1,0 +1,122 @@
+---------------------------------------------------------------------------
+ImportError                               Traceback (most recent call last)
+C:\ProgramData\Anaconda3\lib\site-packages\tensorflow\python\pywrap_tensorflow.py in <module>
+     57 
+---> 58   from tensorflow.python.pywrap_tensorflow_internal import *
+     59   from tensorflow.python.pywrap_tensorflow_internal import __version__
+
+C:\ProgramData\Anaconda3\lib\site-packages\tensorflow\python\pywrap_tensorflow_internal.py in <module>
+     27             return _mod
+---> 28     _pywrap_tensorflow_internal = swig_import_helper()
+     29     del swig_import_helper
+
+C:\ProgramData\Anaconda3\lib\site-packages\tensorflow\python\pywrap_tensorflow_internal.py in swig_import_helper()
+     23             try:
+---> 24                 _mod = imp.load_module('_pywrap_tensorflow_internal', fp, pathname, description)
+     25             finally:
+
+C:\ProgramData\Anaconda3\lib\imp.py in load_module(name, file, filename, details)
+    241         else:
+--> 242             return load_dynamic(name, filename, file)
+    243     elif type_ == PKG_DIRECTORY:
+
+C:\ProgramData\Anaconda3\lib\imp.py in load_dynamic(name, path, file)
+    341             name=name, loader=loader, origin=path)
+--> 342         return _load(spec)
+    343 
+
+ImportError: DLL load failed: 動態連結程式庫 (DLL) 初始化例行程序失敗。
+
+During handling of the above exception, another exception occurred:
+
+ImportError                               Traceback (most recent call last)
+<ipython-input-1-9f4249c703a7> in <module>
+     46 from __future__ import print_function
+     47 #import tensorflow
+---> 48 from keras.models import Model
+     49 from keras.layers import Input, LSTM, Dense
+     50 import numpy as np
+
+C:\ProgramData\Anaconda3\lib\site-packages\keras\__init__.py in <module>
+      1 from __future__ import absolute_import
+      2 
+----> 3 from . import utils
+      4 from . import activations
+      5 from . import applications
+
+C:\ProgramData\Anaconda3\lib\site-packages\keras\utils\__init__.py in <module>
+      4 from . import data_utils
+      5 from . import io_utils
+----> 6 from . import conv_utils
+      7 from . import losses_utils
+      8 from . import metrics_utils
+
+C:\ProgramData\Anaconda3\lib\site-packages\keras\utils\conv_utils.py in <module>
+      7 from six.moves import range
+      8 import numpy as np
+----> 9 from .. import backend as K
+     10 
+     11 
+
+C:\ProgramData\Anaconda3\lib\site-packages\keras\backend\__init__.py in <module>
+----> 1 from .load_backend import epsilon
+      2 from .load_backend import set_epsilon
+      3 from .load_backend import floatx
+      4 from .load_backend import set_floatx
+      5 from .load_backend import cast_to_floatx
+
+C:\ProgramData\Anaconda3\lib\site-packages\keras\backend\load_backend.py in <module>
+     88 elif _BACKEND == 'tensorflow':
+     89     sys.stderr.write('Using TensorFlow backend.\n')
+---> 90     from .tensorflow_backend import *
+     91 else:
+     92     # Try and load external backend.
+
+C:\ProgramData\Anaconda3\lib\site-packages\keras\backend\tensorflow_backend.py in <module>
+      3 from __future__ import print_function
+      4 
+----> 5 import tensorflow as tf
+      6 from tensorflow.python.eager import context
+      7 from tensorflow.python.framework import device as tfdev
+
+C:\ProgramData\Anaconda3\lib\site-packages\tensorflow\__init__.py in <module>
+     26 
+     27 # pylint: disable=g-bad-import-order
+---> 28 from tensorflow.python import pywrap_tensorflow  # pylint: disable=unused-import
+     29 from tensorflow.python.tools import module_util as _module_util
+     30 
+
+C:\ProgramData\Anaconda3\lib\site-packages\tensorflow\python\__init__.py in <module>
+     47 import numpy as np
+     48 
+---> 49 from tensorflow.python import pywrap_tensorflow
+     50 
+     51 # Protocol buffers
+
+C:\ProgramData\Anaconda3\lib\site-packages\tensorflow\python\pywrap_tensorflow.py in <module>
+     72 for some common reasons and solutions.  Include the entire stack trace
+     73 above this error message when asking for help.""" % traceback.format_exc()
+---> 74   raise ImportError(msg)
+     75 
+     76 # pylint: enable=wildcard-import,g-import-not-at-top,unused-import,line-too-long
+
+ImportError: Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\lib\site-packages\tensorflow\python\pywrap_tensorflow.py", line 58, in <module>
+    from tensorflow.python.pywrap_tensorflow_internal import *
+  File "C:\ProgramData\Anaconda3\lib\site-packages\tensorflow\python\pywrap_tensorflow_internal.py", line 28, in <module>
+    _pywrap_tensorflow_internal = swig_import_helper()
+  File "C:\ProgramData\Anaconda3\lib\site-packages\tensorflow\python\pywrap_tensorflow_internal.py", line 24, in swig_import_helper
+    _mod = imp.load_module('_pywrap_tensorflow_internal', fp, pathname, description)
+  File "C:\ProgramData\Anaconda3\lib\imp.py", line 242, in load_module
+    return load_dynamic(name, filename, file)
+  File "C:\ProgramData\Anaconda3\lib\imp.py", line 342, in load_dynamic
+    return _load(spec)
+ImportError: DLL load failed: 動態連結程式庫 (DLL) 初始化例行程序失敗。
+
+
+Failed to load the native TensorFlow runtime.
+
+See https://www.tensorflow.org/install/errors
+
+for some common reasons and solutions.  Include the entire stack trace
+above this error message when asking for help.
